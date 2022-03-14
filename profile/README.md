@@ -10,4 +10,4 @@
 -->
 
 ![Image from iOS](https://user-images.githubusercontent.com/24898863/157044559-70823cfa-2af3-4a4a-a1a4-972f6dd73ddb.gif)
-# ✍️[Tech Blog](https://medium.com/strise)
+## ✍️[Blog](https://medium.com/strise)
