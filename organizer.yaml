@@ -1,0 +1,155 @@
+# Disallow topic assignment
+topics_for_assignment: false
+
+# Default rules for all repos
+repositories:
+  default:
+    features:
+      has_issues: true
+      has_wiki: false
+      has_projects: false
+      has_downloads: false
+    merges:   
+      allow_squash_merge: true
+      allow_merge_commit: false
+      allow_rebase_merge: true
+    branches:
+      master:
+        enforce_admins: false
+        required_status_checks:
+          require_review: true
+  
+  # Group for production related code
+  production:
+    extends: default
+    branches:
+      master:
+        enforce_admins: true
+        required_approving_review_count: 1
+        required_status_checks:
+          require_review: true
+          strict: true
+
+      stage:
+        enforce_admins: true
+        required_approving_review_count: 1
+        required_status_checks:
+          require_review: true
+          strict: false
+  
+  # All repos part of the production environment
+  .github: production
+  mito: production
+  milkyway: production
+  deep: production
+  terraform: production
+  jenkins-shared-library: production
+  jenkins-tasks: production
+  helm: production
+  dockerfiles: production
+  
+# Organization-wide labels  
+labels:
+  # Bugs n stuff
+  - name: bug
+    color: C70000
+  - name: critical
+    color: EE0701
+
+  # Prioritization
+  - name: High impact / High effort
+    color: b400c3
+  - name: High impact / Low effort
+    color: b400c3
+  - name: Low impact / High effort
+    color: b400c3
+  - name: Low impact / Low effort
+    color: b400c3
+  # Features
+  - name: feature
+    color: 003796
+  - name: experimental
+    color: 221166
+  - name: minor
+    color: 4273C9
+  - name: quickwin
+    color: b400c3
+  # Requested by
+  - name: loop
+    color: b400c3
+  - name: handover
+    color: b400c3
+  - name: 10k-workshop
+    color: b400c3
+  - name: roadmap
+    color: b400c3
+  # Rocks
+  - name: norway
+    color: 6b184d
+  - name: sweden
+    color: 6b184d
+  - name: denmark
+    color: 6b184d
+  - name: uk
+    color: 6b184d
+  - name: search
+    color: 6b184d
+  - name: flags
+    color: 6b184d
+  - name: relevance
+    color: 6b184d
+  - name: opportunities
+    color: 6b184d
+  - name: graph
+    color: 6b184d
+  - name: ai
+    color: 6b184d
+  # Squads
+  - name: squad:core
+    color: 1d22ba
+  - name: squad:app
+    color: 1d22ba
+  - name: squad:engage
+    color: 1d22ba
+  # Apps
+  - name: app:strise
+    color: 128061
+  - name: app:admin
+    color: 128061
+  - name: app:omni
+    color: 128061
+  - name: app:dynamic
+    color: 128061
+  - name: app:qa
+    color: 128061
+  - name: app:slack
+    color: 128061
+  - name: app:web
+    color: 128061
+  - name: app:annotation
+    color: 128061
+  - name: app:system
+    color: 128061
+  - name: app:fika
+    color: 128061
+  - name: mobile
+    color: 128061
+  # Ops & misc
+  - name: housekeeping
+    color: 5319E7
+  - name: operations
+    color: 0B5575
+  - name: performance
+    color: 0B5575
+  - name: ui
+    color: 7268CC
+  - name: needs investigation
+    color: 008622
+  - name: qa
+    color: 7268CC
+  - name: security
+    color: 8F0000
+  - name: disambiguation
+    color: 8F0000
+  - name: translations
+    color: 931579
