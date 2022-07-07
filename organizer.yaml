@@ -13,26 +13,19 @@ repositories:
       allow_squash_merge: true
       allow_merge_commit: false
       allow_rebase_merge: true
-    branches:
-      master:
-        enforce_admins: false
-        required_status_checks:
-          require_review: true
   
   # Group for production related code
   production:
     extends: default
     branches:
       master:
-        enforce_admins: true
-        required_approving_review_count: 1
+        enforce_admins: false
         required_status_checks:
           require_review: true
           strict: true
 
       stage:
-        enforce_admins: true
-        required_approving_review_count: 1
+        enforce_admins: false
         required_status_checks:
           require_review: true
           strict: false
